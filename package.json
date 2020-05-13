@@ -1,0 +1,23 @@
+{
+  "name": "templates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/su050300/templates.git"
+  },
+  "author": "sujeet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/su050300/templates/issues"
+  },
+  "homepage": "https://github.com/su050300/templates#readme",
+  "dependencies": {
+    "ejs": "^3.1.2",
+    "nodemon": "^2.0.3"
+  }
+}

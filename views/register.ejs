@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     <form action="/register" method="post" style="margin:7% 15%">
+          <% if(message) %>
+          <p><%=message%></p>
+          <div class="name">
+              <input type="text" name="name" placeholder="enter your name">
+          </div>
+          <br>
+          <div class="username">
+              <input type="text" name="username" placeholder="enter your username">
+          </div>
+          <br>
+          <div class="email">
+              <input type="email" name="email" placeholder="enter your mail">
+          </div>
+          <br>
+          <div class="password">
+              <input type="password" name="password" placeholder="enter your password">
+          </div>
+          <br>
+          <div class="gender">
+              <input type="radio" name="gender" id="male" value="male">
+              <label for="male">Male</label><br>
+              <input type="radio" name="gender" id="female" value="female">
+              <label for="female">Female</label><br>
+              <input type="radio" name="gender" id="others" value="others">
+              <label for="others">Others</label><br>
+          </div>
+          <br>
+          <button type="submit">submit</button>
+     </form>
+</body>
+</html>
