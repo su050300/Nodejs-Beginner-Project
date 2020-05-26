@@ -8,7 +8,8 @@ var MemoryStore = require('memorystore')(session);             //npm module to s
 var FIXED = require('./routes/constant.js'); 
 var router=require('./routes/router.js'); 
 var register=require('./routes/register.js');   
-var login=require('./routes/login.js');             //file containing constants
+var login=require('./routes/login.js');     
+var forget_pass=require('./routes/forget_password.js') ;     //file containing constants
 app.set('views',path.join(__dirname,'views'));                  //setting views directory(containing all the ejs files) as default view engine directory
 app.set('view engine','ejs');
 app.use(cookieParser());                                        //using cookie-parser
@@ -32,6 +33,7 @@ app.use(bodyParser.json());                                   //setting body par
 app.use('/',router);
 app.use('/register',register);
 app.use('/login',login);
+app.use('/forget_password',forget_pass);
 // require('./routes')(app);                //requiring routes to all the API's in the routes directory
 app.listen(FIXED['PORT'],function(){                          //setting up the server on port PORT
     console.log("listening......");

@@ -7,11 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+     <p><%=message%></p>
      <form action="/login" method="post" >
-         <input name="username" type="text" placeholder="enter your username">
+         <input name="username" type="text" placeholder="enter your username" required>
          <br/>
          <br/>
-         <input name="password" type="password" placeholder="enter your password">
+         <input name="password" type="password" placeholder="enter your password" required>
          <br/>
          <br/>
          <button>Login</button>

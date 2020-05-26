@@ -10,7 +10,7 @@ Router.get('/',function(req,res,next)
 Router.post('/',function(req,res,next)
 {
    /*step 1:--need to check whether the username already exists or not*/
-   connection.query('SELECT * FROM user where username=?',[req.body.username],function(err,rows,fields)
+   connection.query('select * from user where username=?',[req.body.username],function(err,rows,fields)
    {
         if(err)
          throw err;
@@ -21,7 +21,7 @@ Router.post('/',function(req,res,next)
         else
         {
            /*step2:--need to check whether the email already exists or not*/
-           connection.query('SELECT * FROM user where email=?',[req.body.email],function(err,rows,fields)
+           connection.query('select * from user where email=?',[req.body.email],function(err,rows,fields)
            {
                  if(err)
                   throw err;
@@ -39,12 +39,12 @@ Router.post('/',function(req,res,next)
                        gender:req.body.gender
                     };
                     /*step4:-- inserting user data into user table*/
-                    connection.query('INSERT INTO user SET ?',[user],function(err,rows,fields)
+                    connection.query('insert into user set ?',[user],function(err,rows,fields)
                     {
                         if(err)
                          throw err;
                         /*step5:-- set the session variable*/
-                        connection.query('SELECT * FROM user WHERE username=?',[user.username],function(err,rows,fields){
+                        connection.query('select * from user where username=?',[user.username],function(err,rows,fields){
                         if(err)
                           throw err;
                         req.session.username=user.username;

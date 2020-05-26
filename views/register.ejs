@@ -11,19 +11,19 @@
           <% if(message) %>
           <p><%=message%></p>
           <div class="name">
-              <input type="text" name="name" placeholder="enter your name">
+              <input type="text" name="name" placeholder="enter your name" required>
           </div>
           <br>
           <div class="username">
-              <input type="text" name="username" placeholder="enter your username">
+              <input type="text" name="username" placeholder="enter your username" required>
           </div>
           <br>
           <div class="email">
-              <input type="email" name="email" placeholder="enter your mail">
+              <input type="email" name="email" placeholder="enter your mail" required>
           </div>
           <br>
           <div class="password">
-              <input type="password" name="password" placeholder="enter your password">
+              <input type="password" name="password" placeholder="enter your password" required>
           </div>
           <br>
           <div class="gender">
@@ -36,6 +36,8 @@
           </div>
           <br>
           <button type="submit">submit</button>
+          <br/>
+          <a href="/forget_password">forget_password</a>
      </form>
 </body>
 </html>
