@@ -3,6 +3,13 @@ var Router=express.Router();
 
 Router.get('/',function(req,res,next)
 {
-     res.render('home.ejs',{message:''});
-});
+    if(!req.session.username)
+    {
+        res.render("home.ejs",{message:''});
+    }
+    else
+    {
+        res.render("home.ejs",{message:req.session.username});
+    }
+})
 module.exports=Router;

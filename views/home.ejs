@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body>
-    <a href="/register">Register</a>
-    <a href="/login">Login</a>
+    <%if(!message){%>
+      <div class="container-fluid" style="margin:12% 17%">
+        <a href="/register" type="button" class="btn btn-primary">Register</a>
+        <a href="/login" type="button" class="btn btn-primary">Login</a>
+      </div>
+    <%}else{%>
+    <p>welcome back</p>
+    <%}%>
 </body>
 </html>

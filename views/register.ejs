@@ -4,40 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
 </head>
 <body>
-     <form action="/register" method="post" style="margin:7% 15%">
-          <% if(message) %>
-          <p><%=message%></p>
-          <div class="name">
-              <input type="text" name="name" placeholder="enter your name" required>
-          </div>
-          <br>
-          <div class="username">
-              <input type="text" name="username" placeholder="enter your username" required>
-          </div>
-          <br>
-          <div class="email">
-              <input type="email" name="email" placeholder="enter your mail" required>
-          </div>
-          <br>
-          <div class="password">
-              <input type="password" name="password" placeholder="enter your password" required>
-          </div>
-          <br>
-          <div class="gender">
-              <input type="radio" name="gender" id="male" value="male">
-              <label for="male">Male</label><br>
-              <input type="radio" name="gender" id="female" value="female">
-              <label for="female">Female</label><br>
-              <input type="radio" name="gender" id="others" value="others">
-              <label for="others">Others</label><br>
-          </div>
-          <br>
-          <button type="submit">submit</button>
-          <br/>
-          <a href="/forget_password">forget_password</a>
-     </form>
-</body>
-</html>
+<!-- container -->
+<div class="contain">
+    <form  onsubmit = "return formValidation()" method='post' action='/register' class="form-horizontal">
+        <div class="card">
+            <div class="register-header">
+                <h4>Register</h4>
+            </div>
+            <!-- ejs message if email or username already exists -->
+        <% if(message)%>
+        <p  class="text-danger text-center py-2">
+            <%=message%>
+        </p>
+            <div class="card-body">
+                <!-- name of the user -->
+                <div class="form-group">
+                    <div class="row pado">
+                        <div class="col-lg-3 pt-2">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input type='text' id="name" name='name' class="form-control" placeholder='Name' required />
+                        </div>
+                    </div>
+                    <span id = "nameerror" style = "color:red;font-weight:bold;font-size:13px;"></span><br>
+                </div>
+                <!-- username -->
+                <div class="form-group">
+                    <div class="row pado">
+                        <div class="col-lg-3 pt-2">
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input type='text' id="username" name='username' class="form-control" placeholder='Username' required />
+                        </div>
+                    </div>
+                    <span id = "usernameerror" style = "color:red;font-weight:bold;font-size:13px;"</span><br>
+                </div>
+                <!-- email id -->
+                <div class="form-group">
+                    <div class="row pado">
+                        <div class="col-lg-3 pt-2">
+                            <label for="mail">Email</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input type='email' id="mail" name='email' class="form-control" placeholder='Email' required />
+                        </div>
+                    </div>
+                    <span id = "emailerror" style = "color:red;font-weight:bold;font-size:13px;"></span><br>
+
+                </div>
+                <!-- password -->
+                <div class="form-group">
+                    <div class="row pado">
+                        <div class="col-lg-3 pt-2">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input type='password' id="password" name='password' class="form-control" placeholder='Password' required />
+                        </div>
+
+                    </div>
+                    <span id = "passworderror" style = "color:red;font-weight:bold;font-size:13px;"></span><br>
+                </div>
+                <!-- gender -->
+                <div class="row pado">
+                    <div class="col-lg-3">
+                        <label>Gender</label>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-check padit">
+                            <input type='radio' class="form-check-input" id="male" name='gender' value='male'>
+                            <label for="male" class="form-check-label text-muted">Male</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+
+                        <div class="form-check padit">
+                            <input type='radio' class="form-check-input" id="medium" name='gender' value='female'>
+                            <label for="female" class="form-check-label text-muted">Female</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-check padit">
+
+                            <input type='radio' class="form-check-input" id="other" name='gender' value='other'>
+                            <label for="other" class="form-check-label text-muted">Other</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- submit -->
+            <div class="card-footer">
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-success" name='submit'>Submit</button>
+                </div>
+
+                <p class="text-muted text-center py-2">Already have an account? &nbsp;<a href='/login'>Login</a></p>
+            </div>
+
+
+        </div>
+
+    </form>
+</div>
+    <script type = "text/javascript">
+
+        function formValidation(){
+            
+            var name = document.getElementById('firstname').value;
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            
+            var namecheck = /^[A-Za-z ]{3,30}$/;
+            var usernamecheck = /^[A-Za-z0-9._]{3,30}$/;
+            var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@##$$%^&*]{8,20}$/;
+            var emailcheck = /^[A-Za-z_]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+            
+            
+            if (!namecheck.test(name)){
+                document.getElementById('nameerror').innerHTML = "*Name must be (3-30) characters long";
+                return false;
+            }
+            else{
+                document.getElementById('nameerror').innerHTML = "";
+            }
+            if (!usernamecheck.test(username)){
+                document.getElementById('usernameerror').innerHTML = "*Username must be (3-30) characters long and can also have (0-9 or _ or .)";
+                return false;
+            }
+            else{
+                document.getElementById('usernameerror').innerHTML = "";
+            }
+            if (!passwordcheck.test(password)){
+                document.getElementById('passworderror').innerHTML = "*Password atleast have one special symbol,0-9 and of length 8-20";
+                return false;
+            }
+            else{
+                document.getElementById('passworderrorerror').innerHTML = "";
+            }
+            if (!emailcheck.test(email)){
+                document.getElementById('emailerror').innerHTML = "*Email is Invalid";
+                return false;
+            }
+            else{
+                document.getElementById('emailerror').innerHTML = "";
+            }
+            
+        }
+        
+        </script>
+        </body>
+        </html>
