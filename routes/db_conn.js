@@ -4,7 +4,7 @@ var mysql=require('mysql');
 var conn=mysql.createConnection({
           host:'localhost',
           user:'root',
-          password:'Su@050300',
+          password:'',
           database:'nodep',
           timezone:'Z'
 });
